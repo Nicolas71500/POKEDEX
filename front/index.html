@@ -16,18 +16,151 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS-->
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+ 
+    <link rel="stylesheet" href="./assets/CSS/styles.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMoYQ5A6PpA5f7UoEY5vghz5fym5MA/j7Y3+jU3" crossorigin="anonymous">
 
-    <!-- Custom JS -->
-    <!-- <script type="module" src="./assets/js/index.js"></script> defer est sous entendu avec un type=module -->
 </head>
 
-<body>
-    <header>
-        <h1>Pokedex</h1>
-    </header>
-    
+    <!-- Custom JS -->
+     <script type="module" src="./assets/js/app.js"></script> 
+     
+</head>
 
+<header>
+    </div>
+    <div class="navbar">
+      <h2 class="team-btn" id="teams-btn">Team</h2>
+      <h2 id="pokedex-btn">Pokedex</h2>
+      <h2 class="type-btn" id="types-btn">Types</h2>
+
+  </header>
+  <main>
+
+
+
+    <aside class="teams" id="scrollbar">
+      <h2>Liste des équipes</h2>
+      <div class="team-list">
+        <div class="team">
+         
+        </div>
+        <div class="team">
+         
+        </div>
+      </div>
+     
+      <button id="add-team-btn">Ajouter une team</button>
+    
+    </aside>
+    <section class="pokemon-list" id="scrollbar">
+      <h2>Liste des Pokémons</h2>
+      <div class="grid">
+       
+      </div>
+    </section>
+
+    <aside class="pokemon-types" id="scrollbar">
+      <h2>Types de Pokémons</h2>
+      <div class="pokemon-types-list">
+      </div>
+    </aside>
+  </main>
+
+
+  <div id="team-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Ajouter une team</h2>
+      <form id="team-form">
+        <div class="form-group">
+          <label for="team-name">Nom de la team:</label>
+          <input type="text" id="team-name" name="team-name" required>
+        </div>
+        <div class="form-group">
+          <label for="team-description">Description:</label>
+          <input type="text" id="team-description" name="team-description">
+        </div>
+    
+        <button type="submit">Ajouter</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="edit-team-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Modifier une team</h2>
+      <form id="edit-team-form">
+        <input type="hidden" id="edit-team-id" name="team-id">
+        <div class="form-group">
+          <label for="edit-team-name">Nom de la team:</label>
+          <input type="text" id="edit-team-name" name="team-name" required>
+        </div>
+        <div class="form-group">
+          <label for="edit-team-description">Description:</label>
+          <input type="text" id="edit-team-description" name="team-description">
+        </div>
+      
+        <button type="submit">Modifier</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="pokemon-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <button id="addToTeam" >Ajouter à l'équipe</button>
+      <h2>caractéristiques du Pokémon</h2>
+      <div id="pokemon-details">  
+      </div>
+    </div>
+  </div>
+
+  <div id="type-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Détails du type</h2>
+      <div id="type-details" class="type-details">
+        <!-- Insertion ici  -->
+      </div>
+    </div>
+  </div>
+    <div id="" team-pokemons="">
+      </div>
+    </div>
+
+    <div id="pokemon-team-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Liste des Pokémons de l'équipe</h2>
+        <div id="pokemon-team-details">
+          <!-- Insertion ici  -->
+        </div>
+      </div>
+    </div>
+
+    <div id="add-pokemon-to-team-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Ajouter Pokémon à l'équipe</h2>
+       
+        <form id="add-pokemon-to-team-form">
+          <div class="form-group">
+            <label for="team-select">Sélectionnez une équipe :</label>
+            <select id="team-select" name="team-select" required>
+              
+            </select>
+          </div>
+          <input type="hidden" id="pokemon-id-to-add" name="pokemon-id-to-add">
+          <button type="submit" onclick="submitPokemonToTeam()">Ajouter à l'équipe</button>
+        </form>
+      </div>
+    </div>
+  
 </body>
 
 </html>
