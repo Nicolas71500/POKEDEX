@@ -313,26 +313,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  function showPokemonDetails(pokemonId) {
+  async function searchPokemon(name) {
+    try {
+        const response = await fetch(`${apiBaseUrl}/pokemons/pokemon/${name}`);
+        if (!response.ok) {
+            throw new Error('Pokemon not found');
+        }
+        const data = await response.json();
+        console.log('Pokemon found:', data);
+        showPokemonDetails(data.id); 
+    } catch (error) {
+        console.error('Error fetching pokemon:', error);
+        document.getElementById('result').innerHTML = '<p>Pokemon not found or server error</p>';
+    }
+}
+
+
+function showPokemonDetails(pokemonId) {
     fetch(`${apiBaseUrl}/pokemons/${pokemonId}`)
         .then(response => response.json())
         .then(data => {
             const pokemonDetails = document.getElementById('pokemon-details');
             const imgPath = `assets/img/${pokemonId}.png`;
             pokemonDetails.innerHTML = `
-                <div class="pokemon-details-container"> 
-             
-                    <div class="pokemon-details-text">  
-                     <button class="addToTeam" id="addToTeam">Ajouter à l'équipe</button>
+                <div class="pokemon-details-container">
+                    <div class="pokemon-details-text">
+                        <button class="addToTeam" id="addToTeam">Ajouter à l'équipe</button>
                         <p><strong>Nom:</strong> ${data.name}</p>
                         <p><strong>HP:</strong> ${data.hp}</p>
                         <p><strong>Attaque:</strong> ${data.atk}</p>
                         <p><strong>Défense:</strong> ${data.def}</p>
                         <p><strong>Attaque Spéciale:</strong> ${data.atk_spe}</p>
                         <p><strong>Défense Spéciale:</strong> ${data.def_spe}</p>
+                        <p><strong>Vitesse:</strong> ${data.speed}</p>
                     </div>
                     <img src="${imgPath}" alt="${data.name}" class="pokemon-detail-image">
-                   
                 </div>
             `;
             const pokemonModal = document.getElementById('pokemon-modal');
@@ -349,7 +364,13 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error fetching pokemon details:', error));
 }
-  
+
+document.querySelector('nav .navbar-search').addEventListener('keyup', event => {
+  if (event.key === 'Enter') {
+      const searchTerm = event.target.value.toLowerCase();
+      searchPokemon(searchTerm);
+  }
+});
 
   function openAddPokemonToTeamModal(pokemonId) {
     const addPokemonToTeamModal = document.getElementById('add-pokemon-to-team-modal');
@@ -475,18 +496,7 @@ function showTypeDetails(typeId) {
 
 });
 
-function searchPokemon(event){
-    event.preventDefault();
-    const searchInput = document.getElementById('searchInput');
-    const pokemonName = searchInput.value;
-    fetch(`${apiBaseUrl}/pokemons/pokemon/${pokemonName}`)
-    .then(response => response.json())
-    .then(data => {
-        console.log('Pokemon found:', data);
-        showPokemonDetails(data.id);
-    })
-    .catch(error => console.error('Error fetching pokemon:', error));
-}
+
 
 
 
