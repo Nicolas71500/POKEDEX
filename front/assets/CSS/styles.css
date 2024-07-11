@@ -37,27 +37,13 @@ html{
 
 
 
-.navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 85%;
-  margin: auto;
- 
-}
 
-.navbar h2{
-  background-color: wheat;
-    padding: 10px;
-    border-radius: 10px;
-    color: red;
-    cursor:pointer;
-    width: 150px;
-}
+
+
 
 .pokemon-list h2{
-  color: red;
-  background-color: wheat;
+  color: black;
+  background-color: rgb(209, 87, 87);
   border-radius: 10px;
   padding: 10px;}
 
@@ -73,8 +59,39 @@ html{
   flex-direction: column;
 }
 
+#add-pokemon-to-team-modal-content{
+  text-align: center;
+  background-color: rgb(209, 87, 87);
+}
+
+#edit-team-modal-content{
+  text-align: center;
+  background-color: rgb(209, 87, 87);
+}
+
+#edit-team-description{
+  border-radius: 10px;
+}
+#edit-team-name{
+  border-radius: 10px;
+}
+
+#add-pokemon-to-team-btn{
+  border-radius: 10px;
+    padding: 10px;
+}
+
+#team-select{
+  border-radius: 10px;
+    padding: 10px;
+}
+
 .modal-content h2{
   text-align: center;
+}
+.button.is-primary{
+  background-color: rgb(209, 87, 87);
+  color: white;
 }
 
 .close-btn {
@@ -127,9 +144,10 @@ body {
 header {
   
   color: #fff;
-  padding: 10px;
+  
   text-align: center;
   flex-shrink: 0;
+  width: 100%;
 }
 
 main {
@@ -388,8 +406,76 @@ section.pokemon-list {
  .pokemon-types{
    opacity: 0;
  }
-    
+
+ .navbar {
+  background-color: rgb(209, 87, 87);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 97.9%;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 150px;
+  cursor: pointer;
+}
+
+.navbar-item {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-item:hover {
+  text-decoration: underline;
   
+}
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.navbar-button.login {
+  background-color: #e68b40;
+  color: #fff;
+}
+
+.navbar-button.signup {
+  background-color: #e68b40;
+  color: white
+}
+
+.navbar-search {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+  
+
 
 
 

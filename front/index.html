@@ -29,14 +29,28 @@
 </head>
 
 <header>
+  <nav class="navbar">
+    <div class="navbar-container">
+        <a href="#" class="navbar-logo"><?xml version="1.0" encoding="UTF-8"?><svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2 12L9 12" stroke="#000000" stroke-width="1.5"></path><path d="M15 12L22 12" stroke="#000000" stroke-width="1.5"></path></svg>
+        </a>
+        <div class="navbar-links">
+            <a  id="teams-btn" class="navbar-item">Teams</a> 
+            <a  id="pokedex-btn" class="navbar-item">Pokedex</a>
+            <a  id="types-btn" class="navbar-item">Types</a>
+          
+        
+        </div>
+        <div class="navbar-actions">
+            <button class="navbar-button login">Connexion</button>
+            <button class="navbar-button signup">Inscription</button>
+            <input type="text" class="navbar-search" placeholder="Search...">
+        </div>
     </div>
-    <div class="navbar">
-      <h2 class="team-btn" id="teams-btn">Team</h2>
-      <h2 id="pokedex-btn">Pokedex</h2>
-      <h2 class="type-btn" id="types-btn">Types</h2>
-      </div>
+</nav>
 
-  </header>
+
+
+</header>
   <main>
 
 
@@ -71,12 +85,12 @@
 
 
   <div id="team-modal" class="modal">
-    <div class="modal-content">
+    <div id="edit-team-modal-content" class="modal-content">
       <span class="close-btn">&times;</span>
-      <h2>Ajouter une team</h2>
+      <h2>Ajouter une équipe</h2>
       <form id="team-form">
         <div class="form-group">
-          <label for="team-name">Nom de la team:</label>
+          <label for="team-name">Nom de l'équipe:</label>
           <input type="text" id="team-name" name="team-name" required>
         </div>
         <div class="form-group">
@@ -91,7 +105,7 @@
 
 
   <div id="edit-team-modal" class="modal">
-    <div class="modal-content">
+    <div id="edit-team-modal-content" class="modal-content">
       <span class="close-btn">&times;</span>
       <h2>Modifier une team</h2>
       <form id="edit-team-form">
@@ -145,7 +159,7 @@
     </div>
 
     <div id="add-pokemon-to-team-modal" class="modal">
-      <div class="modal-content">
+      <div class="modal-content" id="add-pokemon-to-team-modal-content">
         <span class="close-btn">&times;</span>
         <h2>Ajouter Pokémon à l'équipe</h2>
        
@@ -157,7 +171,7 @@
             </select>
           </div>
           <input type="hidden" id="pokemon-id-to-add" name="pokemon-id-to-add">
-          <button type="submit" >Ajouter à l'équipe</button>
+          <button id= "add-pokemon-to-team-btn" type="submit" >Ajouter à l'équipe</button>
         </form>
       </div>
     </div>

@@ -308,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const pokemonId = pokemonIdToAdd.value;
             submitAddToTeamModal(teamId, pokemonId);
             addPokemonToTeamModal.style.display = 'none';
+            
         });
   }
 
@@ -473,6 +474,24 @@ function showTypeDetails(typeId) {
 
 
 });
+
+function searchPokemon(event){
+    event.preventDefault();
+    const searchInput = document.getElementById('searchInput');
+    const pokemonName = searchInput.value;
+    fetch(`${apiBaseUrl}/pokemons/pokemon/${pokemonName}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log('Pokemon found:', data);
+        showPokemonDetails(data.id);
+    })
+    .catch(error => console.error('Error fetching pokemon:', error));
+}
+
+
+
+
+
 
 
 
