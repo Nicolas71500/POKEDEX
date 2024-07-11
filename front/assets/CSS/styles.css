@@ -37,13 +37,26 @@ html{
 
 
 
+.teams h2{
+  color: white;
+}
 
+.team h3 {
+  color: white;
+}
 
+.team p {
+  color: white;
+}
+
+.pokemon-card p {
+  color: white;
+}
 
 
 .pokemon-list h2{
-  color: black;
-  background-color: rgb(209, 87, 87);
+  color: white;
+  background-color: rgb(10 74 93);
   border-radius: 10px;
   padding: 10px;}
 
@@ -61,7 +74,7 @@ html{
 
 #add-pokemon-to-team-modal-content{
   text-align: center;
-  background-color: rgb(209, 87, 87);
+  background-color: rgb(10 74 93);
 
 }
 
@@ -72,7 +85,7 @@ html{
 
 #edit-team-modal-content{
   text-align: center;
-  background-color: rgb(209, 87, 87);
+  background-color: rgb(10 74 93);
 }
 
 #edit-team-description{
@@ -107,9 +120,10 @@ html{
 
 .modal-content h2{
   text-align: center;
+  
 }
 .button.is-primary{
-  background-color: rgb(209, 87, 87);
+  background-color: rgb(10 74 93);
   color: white;
 }
 
@@ -138,6 +152,7 @@ html{
 .form-group label {
   display: block;
   margin-bottom: 5px;
+  color: white;
 }
 
 .form-group input {
@@ -155,7 +170,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-image: url(../img/background3.png);
+  background-image: url(../img/background7.jpg);
   
   background-size: cover;
   background-position: center
@@ -184,7 +199,7 @@ aside.teams {
   text-align: center;
   width: 25%;
   padding: 20px;
-  background-color: rgb(209, 87, 87);
+  background-color: rgb(10 74 93);
   border-radius: 10px;
   margin: 20px;
   overflow-y: auto;
@@ -198,7 +213,7 @@ aside.teams {
   border: 2px solid #122030; 
   padding: 10px;
   border-radius: 10px; 
-  background-color: rgb(209, 87, 87);
+  background-color: rgb(10 74 93);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
@@ -225,7 +240,7 @@ aside.teams {
   margin-top: 20px;
   padding: 10px;
   background-color: white;
-  color: black;
+  
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -236,7 +251,7 @@ aside.teams {
   top: 10px;
   right: 10px;
   cursor: pointer;
-  color: black;
+  color:  white;
 }
 
 .edit-team-btn {
@@ -244,7 +259,7 @@ aside.teams {
   top: 10px;
   left: 10px;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 .details-team-btn{
@@ -252,7 +267,7 @@ aside.teams {
   bottom: 10px;
   right: 10px;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 section.pokemon-list {
@@ -269,7 +284,7 @@ section.pokemon-list {
 }
 
 .pokemon-list .grid div {
-  background-color: rgb(209, 87, 87);
+  background-color: rgb(10 74 93);
   height: 100px;
   border-radius: 10px;
   display: flex;
@@ -279,21 +294,22 @@ section.pokemon-list {
   
 }
 .pokemon-list .grid div:hover{
-  background-color: #e68b40;
+  background-color: #4d81bb;
 }
 
 #type-details .pokemon-card:hover{
-  background-color: #e68b40;
+  background-color: #4d81bb;
 }
 
 #pokemon-team-details .pokemon-card:hover{
-  background-color: #e68b40;
+  background-color: #4d81bb;
 }
 
 .addToTeam:hover {
-  background-color: #e68b40;
+  background-color: #4d81bb;
   transform: scale(1.05);
   cursor: pointer;
+  
 }
 
 .pokemon-card {
@@ -349,37 +365,37 @@ section.pokemon-list {
 .pokemon-types {
   width: 25%;
     padding: 20px;
-    background-color: rgb(209, 87, 87);
+    background-color: rgb(10 74 93);
     border-radius: 10px;
     margin: 20px;
     overflow-y: auto;
 }
 .pokemon-type:hover {
   transform: scale(1.05);
-  background-color: #e68b40;
+  background-color: #4d81bb;
 }
 
 .team:hover {
   transform: scale(1.05);
   cursor: pointer;
-  background-color: #e68b40;
+  background-color: #4d81bb;
 }
 
 #pokemon-team-details .pokemon-card{
   margin: 20px;
-  background-color:rgb(209, 87, 87) ;
+  background-color:rgb(10 74 93) ;
 }
 
 #type-details .pokemon-card{
   margin: 20px;
-  background-color:rgb(209, 87, 87) ;
+  background-color:rgb(10 74 93) ;
   
 }
 
 #add-team-btn:hover {
   cursor: pointer;
   transform: scale(1.05);
-  background-color: #e68b40;
+  background-color: #4d81bb;
 }
 
 #type-details{
@@ -404,8 +420,9 @@ section.pokemon-list {
     justify-content: center;
     cursor: pointer;
     transition: transform 0.2s;
+    color: #f4f4f4;
     
-   
+
     
   }
 
@@ -415,6 +432,7 @@ section.pokemon-list {
 
   .pokemon-types h2{
     text-align: center;
+    color: white;
   }
  
   .pokemon-type ul {
@@ -439,8 +457,8 @@ section.pokemon-list {
 
   .addToTeam {
     padding: 1.5em;
-    
-    background-color: rgb(209, 87, 87);
+    color: #f4f4f4;
+    background-color: rgb(10 74 93);
     border-radius: 10px;
   }
 
@@ -454,12 +472,13 @@ section.pokemon-list {
  }
 
  .navbar {
-  background-color: rgb(209, 87, 87);
+  background-color:rgb(10 74 93);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 97.9%;
+  opacity: 0.7;
 }
 
 .navbar-container {
@@ -477,6 +496,7 @@ section.pokemon-list {
   display: flex;
   gap: 150px;
   cursor: pointer;
+  margin: auto;
 }
 
 .navbar-item {
@@ -485,7 +505,8 @@ section.pokemon-list {
   font-size: 18px;
   padding: 10px;
   border-radius: 10px;
-  background-color: #e68b40;
+  background-color: #4d81bb;
+  
 
 
 }
@@ -500,6 +521,7 @@ section.pokemon-list {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: auto;
 }
 
 .navbar-button {
@@ -512,12 +534,12 @@ section.pokemon-list {
 }
 
 .navbar-button.login {
-  background-color: #e68b40;
+  background-color: #4d81bb;
   color: #fff;
 }
 
 .navbar-button.signup {
-  background-color: #e68b40;
+  background-color: #4d81bb;
   color: white
 }
 
