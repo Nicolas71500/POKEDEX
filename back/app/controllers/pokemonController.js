@@ -1,4 +1,6 @@
 import { Pokemon } from "../models/pokemon.js";
+import { Sequelize } from 'sequelize';
+
 
 export const getPokemons = async (req, res) => {
     try {
@@ -51,5 +53,25 @@ export const getPokemonLeaderboard = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
+
+export const getpokemonbyname = async (req, res) => {
+    try {
+        const pokemon = await Pokemon.findOne({
+            where: {
+                name: {
+                    [Sequelize.Op.iLike]: req.params.name
+                }
+            }
+        });
+        if (!pokemon) {
+            return res.status(404).json({ message: "Pokemon not found" });
+        }
+        res.status(200).json(pokemon);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+};
+
 
 

@@ -102,7 +102,7 @@ export async function getOneTeamAndPokemons(req, res) {
 
 
 export async function addPokemonToTeam(req, res) {
-    const { teamId, pokemonId } = req.body;
+    const { teamId, pokemonId } = req.params; // Récupérer les paramètres de l'URL
 
     try {
         console.log(`Received request to add Pokemon with ID ${pokemonId} to Team with ID ${teamId}`);
@@ -128,6 +128,7 @@ export async function addPokemonToTeam(req, res) {
         res.status(500).json({ message: "Server error" });
     }
 }
+
 
 
 

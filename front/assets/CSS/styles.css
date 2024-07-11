@@ -14,13 +14,28 @@
 html{
     height: 100%;
     margin: 0;
-    background-image: url(./img/background.jpg);
+   
 }
 
 
 #scrollbar{
   scrollbar-width: none;
 }
+
+#types-btn:hover{
+    transform: scale(1.05);
+  }
+
+#pokedex-btn:hover{
+    transform: scale(1.05);
+  }
+
+#teams-btn:hover{
+    transform: scale(1.05);
+  }
+  
+
+
 
 .navbar{
   display: flex;
@@ -36,7 +51,7 @@ html{
     padding: 10px;
     border-radius: 10px;
     color: red;
-    cursor: pointer;
+    cursor:pointer;
     width: 150px;
 }
 
@@ -121,7 +136,7 @@ main {
   display: flex;
   flex: 1;
   overflow: hidden;
-  background-image: url(./img/background.jpg);
+  
 }
 
 aside.teams {
@@ -244,6 +259,8 @@ section.pokemon-list {
   object-fit: cover;
 }
 
+
+
 .pokemon-details-container {
   display: flex;
   align-items: flex-start;
@@ -356,9 +373,9 @@ section.pokemon-list {
 
   }
 
-  #addToTeam {
+  .addToTeam {
     padding: 1.5em;
-    margin: auto;
+    
     background-color: rgb(209, 87, 87);
     border-radius: 10px;
   }

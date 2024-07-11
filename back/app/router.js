@@ -11,6 +11,7 @@ router.get("/pokemons", pokemonController.getPokemons);
 router.get("/pokemons/:id", pokemonController.getPokemonById);
 router.post("/pokemons/:id/votes", pokemonController.addPokemonVote);
 router.get("/pokemons/leaderboard", pokemonController.getPokemonLeaderboard);
+router.get("/pokemons/pokemon/:name", pokemonController.getpokemonbyname);
 
 
 
@@ -19,7 +20,7 @@ router.get("/teams/:id", teamController.getTeamById);
 router.post("/teams", teamController.createTeam);
 router.put("/teams/:id", teamController.updateTeam);
 router.delete("/teams/:id", teamController.deleteTeam);
-router.put("/teams/:id/pokemons/:id", teamController.addPokemonToTeam);
+router.put("/teams/:teamId/pokemons/:pokemonId", teamController.addPokemonToTeam);
 router.delete('/teams/:teamId/pokemons/:pokemonId', teamController.removePokemonFromTeam);
 router.get ("/teams/pokemons", teamController.getAllTeamsAndPokemons);
 router.get('/teams/:id/pokemons', teamController.getOneTeamAndPokemons)

@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const pokemonList = document.querySelector('.pokemon-list .grid');
   const editTeamForm = document.getElementById('edit-team-form');
   const editTeamModal = document.getElementById('edit-team-modal');
-  document.getElementById('add-pokemon-to-team-modal')
-  document.getElementById('add-pokemon-to-team-form').reset();
   const titleTeams = document.getElementById('teams-btn');
   const titleTypes = document.getElementById('types-btn');
   const titlePokemons = document.getElementById('pokedex-btn');
@@ -28,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchPokemons();
   fetchPokemonTypes();
   initializeSortable();
-  submitPokemonToTeam()
+  
 
 
   function initializeSortable() {
@@ -128,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.closest('.modal ').style.display = 'none';
       
     });
+    
   });
 
   function deleteTeam(teamId) {
@@ -147,8 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const teamName = document.getElementById('team-name').value;
     const teamDescription = document.getElementById('team-description').value;
-    const teamPokemon = document.getElementById('team-pokemons').value;
-    addTeam(teamName, teamDescription, teamPokemon);
+    addTeam(teamName, teamDescription );
     teamModal.style.display = 'none';
   });
 
@@ -179,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   function addTeam(name, description, pokemons) {
-    fetch(`${apiBaseUrl}/teams/;`, {
+    fetch(`${apiBaseUrl}/teams`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -251,6 +249,30 @@ document.addEventListener('DOMContentLoaded', () => {
     editTeamModal.style.display = 'block';
   };
 
+ 
+
+  function submitAddToTeamModal(teamId, pokemonId) {
+    fetch(`${apiBaseUrl}/teams/${teamId}/pokemons/${pokemonId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to add Pokémon to team');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Pokémon ajouté à l\'équipe avec succès', data);
+      
+    })
+    .catch(error => {
+      console.error('Erreur lors de l\'ajout du Pokémon à l\'équipe:', error);
+      
+    });
+  }
 
   function fetchPokemons() {
     fetch(`${apiBaseUrl}/pokemons`)
@@ -259,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Fetched pokemons:', data);
         pokemonList.innerHTML = '';
         data.forEach((pokemon, index) => {
-          const imgPath = `assets/img/${index + 1}.webp`;
+          const imgPath = `assets/img/${index + 1}.png`;
           console.log('Image path:', imgPath);
           const div = document.createElement('div');
           div.className = 'pokemon-card';
@@ -276,48 +298,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       })
       .catch(error => console.error('Error fetching pokemons:', error));
+
+      const addPokemonToTeamModal = document.getElementById('add-pokemon-to-team-modal');
+        const teamSelect = document.getElementById('team-select');
+        const pokemonIdToAdd = document.getElementById('pokemon-id-to-add');
+        document.getElementById('add-pokemon-to-team-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const teamId = teamSelect.value;
+            const pokemonId = pokemonIdToAdd.value;
+            submitAddToTeamModal(teamId, pokemonId);
+            addPokemonToTeamModal.style.display = 'none';
+        });
   }
 
 
   function showPokemonDetails(pokemonId) {
     fetch(`${apiBaseUrl}/pokemons/${pokemonId}`)
-      .then(response => response.json())
-      .then(data => {
-        const pokemonDetails = document.getElementById('pokemon-details');
-        const imgPath = `assets/img/${pokemonId}.webp`;
-        pokemonDetails.innerHTML = `
-        <div class="pokemon-details-container">
-        <div class="pokemon-details-text">
-          <p><strong>Nom:</strong> ${data.name}</p>
-          <p><strong>HP:</strong> ${data.hp}</p>
-          <p><strong>Attaque:</strong> ${data.atk}</p>
-          <p><strong>Défense:</strong> ${data.def}</p>
-          <p><strong>Attaque Spéciale:</strong> ${data.atk_spe}</p>
-          <p><strong>Défense Spéciale:</strong> ${data.def_spe}</p>
-          </div>
-          <img src="${imgPath}" alt="${data.name}" class="pokemon-detail-image">
-          </div>
-        `;
-        pokemonModal.style.display = 'block';
-        document.getElementById('addToTeam').addEventListener('click', () => {
-          openAddPokemonToTeamModal(data.id);
-        });
-        
-      })
-      .catch(error => console.error('Error fetching pokemon details:', error));
-  }
-  
+        .then(response => response.json())
+        .then(data => {
+            const pokemonDetails = document.getElementById('pokemon-details');
+            const imgPath = `assets/img/${pokemonId}.png`;
+            pokemonDetails.innerHTML = `
+                <div class="pokemon-details-container"> 
+             
+                    <div class="pokemon-details-text">  
+                     <button class="addToTeam" id="addToTeam">Ajouter à l'équipe</button>
+                        <p><strong>Nom:</strong> ${data.name}</p>
+                        <p><strong>HP:</strong> ${data.hp}</p>
+                        <p><strong>Attaque:</strong> ${data.atk}</p>
+                        <p><strong>Défense:</strong> ${data.def}</p>
+                        <p><strong>Attaque Spéciale:</strong> ${data.atk_spe}</p>
+                        <p><strong>Défense Spéciale:</strong> ${data.def_spe}</p>
+                    </div>
+                    <img src="${imgPath}" alt="${data.name}" class="pokemon-detail-image">
+                   
+                </div>
+            `;
+            const pokemonModal = document.getElementById('pokemon-modal');
+            pokemonModal.style.display = 'block';
 
+            const addToTeamButton = document.getElementById('addToTeam');
+            addToTeamButton.removeEventListener('click', handleAddToTeamClick);
+            addToTeamButton.addEventListener('click', handleAddToTeamClick);
+
+            function handleAddToTeamClick() {
+                openAddPokemonToTeamModal(data.id);
+                pokemonModal.style.display = 'none'; 
+            }
+        })
+        .catch(error => console.error('Error fetching pokemon details:', error));
+}
+  
 
   function openAddPokemonToTeamModal(pokemonId) {
     const addPokemonToTeamModal = document.getElementById('add-pokemon-to-team-modal');
-
     document.getElementById('add-pokemon-to-team-form').reset();
-     
     addPokemonToTeamModal.style.display = 'block';
-    
     const teamSelect = document.getElementById('team-select');
-    teamSelect.innerHTML = ''; 
+    teamSelect.textContent = '';
     fetch(`${apiBaseUrl}/teams`)
       .then(response => response.json())
       .then(data => {
@@ -326,17 +364,12 @@ document.addEventListener('DOMContentLoaded', () => {
           option.value = team.id;
           option.textContent = team.name;
           teamSelect.appendChild(option);
-          
         });
       })
       .catch(error => console.error('Error fetching teams:', error));
-
-    
     document.getElementById('pokemon-id-to-add').value = pokemonId;
-    
-    
   }
-
+ 
 
 
   function showPokemonbyTeam(teamId) {
@@ -351,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pokemonList.innerHTML = '';
         const pokemons = data.pokemons;
         pokemons.forEach(pokemon => {
-          const imgPath = `assets/img/${pokemon.id}.webp`;
+          const imgPath = `assets/img/${pokemon.id}.png`;
           const div = document.createElement('div');
           div.className = 'pokemon-card';
           div.innerHTML = `
@@ -393,7 +426,7 @@ function showTypeDetails(typeId) {
           const existingPokemonCards = pokemonList.querySelectorAll('.pokemon-card');
           existingPokemonCards.forEach(card => card.remove());
           pokemonData.forEach(pokemon => {
-            const imgPath = `assets/img/${pokemon.id}.webp`;
+            const imgPath = `assets/img/${pokemon.id}.png`;
             const div = document.createElement('div');
             div.className = 'pokemon-card';
             div.innerHTML = `
@@ -429,7 +462,6 @@ function showTypeDetails(typeId) {
           div.addEventListener('click', () => {
             showTypeDetails(type.id);
             getPokemonsByType(type.id);
-
           });
           pokemonTypes.appendChild(div);
 
@@ -443,28 +475,6 @@ function showTypeDetails(typeId) {
 });
 
 
-function submitPokemonToTeam() {
-  const teamId = document.getElementById('team-select').value;
-  const pokemonId = document.getElementById('pokemon-id-to-add').value;
-
-  fetch(`${apiBaseUrl}/teams/${teamId}/pokemons/${pokemonId}`, {
-    method: 'PUT',
-
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ teamId })
-
-  }).then(response => response.json())
-
-  .then(data => {
-    console.log('Pokemon added to team:', data);
-    getPokemonsByType(typeId);
-  })
-  .catch(error => console.error('Error adding pokemon to team:', error));
-
-
-}
 
 
 
