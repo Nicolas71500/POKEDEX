@@ -338,7 +338,7 @@ function showPokemonDetails(pokemonId) {
             pokemonDetails.innerHTML = `
                 <div class="pokemon-details-container">
                     <div class="pokemon-details-text">
-                        <button class="addToTeam" id="addToTeam">Ajouter à l'équipe</button>
+                        <button class="addToTeam" id="addToTeam">Ajouter à une équipe</button>
                         <p><strong>Nom:</strong> ${data.name}</p>
                         <p><strong>HP:</strong> ${data.hp}</p>
                         <p><strong>Attaque:</strong> ${data.atk}</p>
@@ -369,6 +369,7 @@ document.querySelector('nav .navbar-search').addEventListener('keyup', event => 
   if (event.key === 'Enter') {
       const searchTerm = event.target.value.toLowerCase();
       searchPokemon(searchTerm);
+      event.target.value = '';
   }
 });
 

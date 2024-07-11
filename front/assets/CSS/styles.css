@@ -276,6 +276,24 @@ section.pokemon-list {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  
+}
+.pokemon-list .grid div:hover{
+  background-color: #e68b40;
+}
+
+#type-details .pokemon-card:hover{
+  background-color: #e68b40;
+}
+
+#pokemon-team-details .pokemon-card:hover{
+  background-color: #e68b40;
+}
+
+.addToTeam:hover {
+  background-color: #e68b40;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .pokemon-card {
@@ -288,10 +306,15 @@ section.pokemon-list {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s;
+  
+  
 }
+
+
 
 .pokemon-card:hover {
   transform: scale(1.05);
+  
 }
 
 .pokemon-image {
@@ -333,13 +356,13 @@ section.pokemon-list {
 }
 .pokemon-type:hover {
   transform: scale(1.05);
-  background-color: #F23030;
+  background-color: #e68b40;
 }
 
 .team:hover {
   transform: scale(1.05);
   cursor: pointer;
-  background-color: #F23030;
+  background-color: #e68b40;
 }
 
 #pokemon-team-details .pokemon-card{
@@ -356,7 +379,7 @@ section.pokemon-list {
 #add-team-btn:hover {
   cursor: pointer;
   transform: scale(1.05);
-  background-color: #F23030;
+  background-color: #e68b40;
 }
 
 #type-details{
@@ -457,15 +480,22 @@ section.pokemon-list {
 }
 
 .navbar-item {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e68b40;
+
+
 }
 
 .navbar-item:hover {
-  text-decoration: underline;
+  
+  transform: scale(1.05);
   
 }
+
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -497,6 +527,7 @@ section.pokemon-list {
   border-radius: 5px;
   font-size: 16px;
 }
+
   
 
 
