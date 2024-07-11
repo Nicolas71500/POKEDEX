@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>Pokedex</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='24px' height='24px' stroke-width='1.5' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' color='%23000000'%3E%3Cpath d='M3 3.6V20.4C3 20.7314 3.26863 21 3.6 21H20.4C20.7314 21 21 20.7314 21 20.4V3.6C21 3.26863 20.7314 3 20.4 3H3.6C3.26863 3 3 3.26863 3 3.6Z' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M6 6L6 16' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M10 6V9' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M14 6V13' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M18 6V11' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS-->
+ 
+    <link rel="stylesheet" href="./assets/CSS/styles.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+   
+
+</head>
+
+    <!-- Custom JS -->
+     <script type="module" src="./assets/js/app.js"></script> 
+     
+</head>
+<header>
+    <nav class="navbar">
+      <div class="navbar-container">
+   
+        
+          <div class="navbar-links">
+            <a id="accueil-btn" class="navbar-item" href="./index.html" id="decoration-btn">Accueil</a>
+              <a  id="teams-btn" class="navbar-item">Equipes</a> 
+              <a  id="pokedex-btn" class="navbar-item">Pokedex</a>
+              <a  id="types-btn" class="navbar-item">Types</a>
+            
+          
+          </div>
+          <div class="navbar-actions">
+              <button class="navbar-button login">Connexion</button>
+              <button class="navbar-button signup"> <a href="./Inscription.html" id="decoration-btn">Inscription</button></a>
+              <input type="text" class="navbar-search" placeholder="Rechercher votre Pokémon">
+          </div>
+      </div>
+  </nav>
+  
+  
+  
+  </header>
+  
+  <main>
+      <section class="formulaire">
+          <h2>Connection</h2>
+        <form>
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button class="formulaire-btn" type="submit">Connection</button>
+            
+            </div>
+            </div>
+        </form>
+
+  
+</body>
+
+</html>

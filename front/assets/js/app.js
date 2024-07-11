@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
   fetchTeams();
   fetchPokemons();
   fetchPokemonTypes();
@@ -64,15 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function toggleOpacity(element) {
-    if (element.style.opacity === '1') {
-      element.style.opacity = '0';
-      element.style.pointerEvents = 'none';
-    } else {
-      element.style.opacity = '1';
-      element.style.pointerEvents = 'auto';
-    }
-  }
+function toggleOpacity(element) {
+  if (element.style.opacity === '1') {
+    element.style.opacity = '0';
+    element.style.pointerEvents = 'none';
+  } else {
+    element.style.opacity = '1';
+    element.style.pointerEvents = 'auto';
+  }}
 
   // Ajouter des écouteurs d'événements aux titres
   titleTeams.addEventListener('click', () => {
@@ -86,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
   titlePokemons.addEventListener('click', () => {
     toggleOpacity(sectionpokemons);
   });
+
+
+
 
 
   function updateTeamOrderOnServer(newOrder) {
@@ -365,7 +368,7 @@ function showPokemonDetails(pokemonId) {
         .catch(error => console.error('Error fetching pokemon details:', error));
 }
 
-document.querySelector('nav .navbar-search').addEventListener('keyup', event => {
+document.querySelector(' .navbar-search').addEventListener('keyup', event => {
   if (event.key === 'Enter') {
       const searchTerm = event.target.value.toLowerCase();
       searchPokemon(searchTerm);

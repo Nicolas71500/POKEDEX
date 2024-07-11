@@ -19,7 +19,7 @@
  
     <link rel="stylesheet" href="./assets/CSS/styles.css"> 
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMoYQ5A6PpA5f7UoEY5vghz5fym5MA/j7Y3+jU3" crossorigin="anonymous">
+   
 
 </head>
 
@@ -34,6 +34,7 @@
  
       
         <div class="navbar-links">
+            <a id="accueil-btn" class="navbar-item">Accueil</a>
             <a  id="teams-btn" class="navbar-item">Equipes</a> 
             <a  id="pokedex-btn" class="navbar-item">Pokedex</a>
             <a  id="types-btn" class="navbar-item">Types</a>
@@ -41,8 +42,8 @@
         
         </div>
         <div class="navbar-actions">
-            <button class="navbar-button login">Connexion</button>
-            <button class="navbar-button signup">Inscription</button>
+            <button class="navbar-button login"> <a href="./Connection.html" id="decoration-btn">Connexion</button></a>
+            <button class="navbar-button signup"> <a href="./Inscription.html" id="decoration-btn">Inscription</button></a>
             <input type="text" class="navbar-search" placeholder="Rechercher votre Pokémon">
         </div>
     </div>
@@ -70,7 +71,7 @@
     
     </aside>
     <section class="pokemon-list" id="scrollbar">
-      <h2>Liste des Pokémons</h2>
+      <h2>Pokedex</h2>
       <div class="grid">
        
       </div>

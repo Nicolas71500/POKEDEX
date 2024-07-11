@@ -104,6 +104,7 @@ html{
 #team-select{
   border-radius: 10px;
     padding: 10px;
+    text-align: center;
 }
 
 #team-select:hover{
@@ -494,7 +495,7 @@ section.pokemon-list {
 
 .navbar-links {
   display: flex;
-  gap: 150px;
+  gap: 10px;
   cursor: pointer;
   margin: auto;
 }
@@ -548,9 +549,34 @@ section.pokemon-list {
   border: none;
   border-radius: 5px;
   font-size: 16px;
+  color: #4d81bb;
 }
 
+
+.formulaire{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+  height: 60%;
+  background-color: rgb(10 74 93);
+  border-radius: 10px;
+}
+
+.formulaire-btn{
+  background-color: rgb(10 74 93);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
   
+#decoration-btn{
+  text-decoration: none;
+  color: white;
+}
 
 
 
