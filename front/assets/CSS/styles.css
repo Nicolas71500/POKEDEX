@@ -578,44 +578,104 @@ section.pokemon-list {
   color: white;
 }
 
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 90%;
+    max-width: none;
+  }
 
+  aside.teams, section.pokemon-list {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+  }
 
+  .pokemon-list .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .navbar {
+    flex-direction: column;
+  }
 
+  .navbar-links {
+    flex-direction: column;
+  }
 
+  .navbar-item {
+    margin-bottom: 10px;
+  }
+}
 
+/* Styles pour les écrans de téléphone (portrait et paysage) */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 60%;
+    max-width: none;
+    margin: auto;
+  }
 
+  header, main, .navbar, .navbar-container {
+    flex-direction: column;
+  }
 
+  .navbar-logo img {
+    height: 30px;
+  }
 
+  .navbar-links {
+    flex-direction: column;
+  }
 
+  .navbar-item {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 
+  aside.teams, section.pokemon-list, .pokemon-types {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+  }
 
+  .pokemon-list .grid {
+    grid-template-columns: 1fr;
+  }
 
+  .team-list .team, .pokemon-card, .pokemon-type {
+    padding: 5px;
+  }
 
+  .pokemon-card {
+    height: auto;
+  }
 
+  .navbar-actions, .navbar-links, .navbar-container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
 
+  #teams-btn {
+    display: none;
+  }
 
+  #types-btn {
+    display: none;
+  }
 
+  .addToTeam{
+    display: none;
+  }
 
+  .navbar-button.login {
+    display: none;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+  .navbar-button.signup {
+    display: none;
+  }
+  #accueil-btn{
+    display: none;
+  }
+}
