@@ -27,22 +27,27 @@ Pokemon.init({
         type: DataTypes.INTEGER,
         allowNull: false,
     }, 
-    def_spe: {        
+    def_spe: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    }, 
-     atk_spe: {        
+    },
+     atk_spe: {
         type: DataTypes.INTEGER,
         allowNull: false,
     }, speed: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    },  
-},                                          
+    },
+    votes: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+    },
+},
 {
-    sequelize, 
-        modelName: 'pokemon', 
-        tableName: 'pokemon', 
+    sequelize,
+        modelName: 'pokemon',
+        tableName: 'pokemon',
         timestamps: false,  
 })                                              
 
