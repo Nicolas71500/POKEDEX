@@ -12,7 +12,8 @@ CREATE TABLE "pokemon" (
   "def" INT NOT NULL,
   "atk_spe" INT NOT NULL,
   "def_spe" INT NOT NULL,
-  "speed" INT NOT NULL
+  "speed" INT NOT NULL,
+  "votes" INT NOT NULL DEFAULT 0
 );
 
 
